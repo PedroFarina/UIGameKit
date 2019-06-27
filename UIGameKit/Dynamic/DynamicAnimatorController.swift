@@ -13,14 +13,16 @@ public class DynamicAnimatorController : NSObject, UICollisionBehaviorDelegate{
     
     init(view:UIView, delegate:ContactDelegate){
         animator = UIDynamicAnimator(referenceView: view)
+        contactDelegate = delegate
         super.init()
     }
     
     public func addSubview(_ view:AffectedByDynamics){
-        behavioManager.config(object: view)
         animator.referenceView?.addSubview(view)
+        behavioManager.config(object: view)
     }
     
+    ///MARK : Collision Occur
     public func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint){
         guard let it1 = item1 as? AffectedByDynamics, let it2 = item2 as? AffectedByDynamics else{
             fatalError("The dynamics items where not according to the protocol. Please if in doubt use the  DynamicObjectsFactory")
@@ -31,5 +33,30 @@ public class DynamicAnimatorController : NSObject, UICollisionBehaviorDelegate{
         else if (it2.categoryBitMask & it1.contactBitMask) > 0{
             contactDelegate?.contactOccur(contact: UIContact(behavior: behavior, item1: item2, item2: item1, at: p))
         }
+    }
+    
+    ///MARK : Pushing Objects
+    public func pushObject(object:AffectedByDynamics, pushDirection:CGVector){
+        behavioManager.CreatePushBehavior(objects:[object], magnitude:1, mode:.instantaneous, pushDirection:pushDirection)
+    }
+    public func pushObject(object:AffectedByDynamics, pushDirection:CGVector, mode:UIPushBehavior.Mode){
+        behavioManager.CreatePushBehavior(objects:[object], magnitude:1, mode:mode, pushDirection:pushDirection)
+    }
+    public func pushObject(object:AffectedByDynamics, magnitude:CGFloat, pushDirection:CGVector){
+        behavioManager.CreatePushBehavior(objects:[object], magnitude:magnitude, mode:.instantaneous, pushDirection:pushDirection)
+    }
+    public func pushObject(object:AffectedByDynamics, magnitude:CGFloat, mode:UIPushBehavior.Mode, pushDirection:CGVector){
+        behavioManager.CreatePushBehavior(objects:[object], magnitude:magnitude, mode:mode, pushDirection:pushDirection)
+    }
+    public func pushObject(objects:[AffectedByDynamics], magnitude:CGFloat, mode:UIPushBehavior.Mode, pushDirection:CGVector){
+        behavioManager.CreatePushBehavior(objects: objects, magnitude: magnitude, mode: mode, pushDirection: pushDirection)
+    }
+    
+    ///MARK: Snaping Objects
+    public func snapObject(object:AffectedByDynamics, to p:CGPoint){
+        behavioManager.CreateSnapBehavior(object: object, to: p, damping: 1)
+    }
+    public func snapObject(object:AffectedByDynamics, to p:CGPoint, damping:CGFloat){
+        behavioManager.CreateSnapBehavior(object: object, to: p, damping: damping)
     }
 }

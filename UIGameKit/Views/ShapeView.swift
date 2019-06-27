@@ -7,6 +7,16 @@
 //
 
 @IBDesignable public class ShapeView : UIView{
+    public override init(frame: CGRect) {
+        super.init(frame:frame)
+        radius = _radius
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        radius = _radius
+    }
+    
     private var _radius:CGFloat = 0
     @IBInspectable public var radius:CGFloat
         {
@@ -24,7 +34,12 @@
         }
     }
     
-    @IBInspectable public var fillColor:UIColor = .red
+    @IBInspectable public var fillColor:UIColor = .red{
+        didSet{
+            radius = _radius
+            needsUpdateConstraints()
+        }
+    }
     
     public override func draw(_ rect: CGRect) {
         super.draw(rect)

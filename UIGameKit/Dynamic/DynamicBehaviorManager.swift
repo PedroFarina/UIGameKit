@@ -47,12 +47,28 @@ public class DynamicBehaviorManager{
     }
     
     private func checkCount(count:Int){
-        for _ in collisionBehaviors.count...count{
-            let behavior:UICollisionBehavior = UICollisionBehavior(items: [])
-            behavior.collisionDelegate =  collisionDelegate
-            collisionBehaviors.append(behavior)
-            animator.addBehavior(behavior)
+        if(count > collisionBehaviors.count){
+            for _ in collisionBehaviors.count...count{
+                let behavior:UICollisionBehavior = UICollisionBehavior(items: [])
+                behavior.collisionDelegate =  collisionDelegate
+                collisionBehaviors.append(behavior)
+                animator.addBehavior(behavior)
+            }
         }
     }
     
+    
+    public func CreatePushBehavior(objects:[AffectedByDynamics], magnitude:CGFloat, mode:UIPushBehavior.Mode, pushDirection:CGVector){
+        let behavior:UIPushBehavior = UIPushBehavior(items: objects, mode: mode)
+        behavior.magnitude = magnitude
+        behavior.pushDirection = pushDirection
+        animator.addBehavior(behavior)
+    }
+    
+    public func CreateSnapBehavior(object:AffectedByDynamics, to p:CGPoint, damping:CGFloat){
+        let behavior:UISnapBehavior = UISnapBehavior(item: object, snapTo: p)
+        behavior.damping = damping
+        
+        animator.addBehavior(behavior)
+    }
 }
