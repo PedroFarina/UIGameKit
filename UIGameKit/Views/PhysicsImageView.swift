@@ -6,7 +6,7 @@
 //  Copyright © 2019 Pedro Giuliano Farina. All rights reserved.
 //
 
-@IBDesignable public class PhysicsImageView : UIImageView, AffectedByDynamics{
+@IBDesignable public class DynamicImageView : UIImageView, AffectedByDynamics{
     @IBInspectable public var affectedByGravity:Bool = true
     @IBInspectable public var categoryBitMask:UInt32 = 1
     @IBInspectable public var collisionBitMask:UInt32 = ~0x0

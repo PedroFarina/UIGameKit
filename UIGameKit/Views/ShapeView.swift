@@ -5,6 +5,7 @@
 //  Created by Pedro Giuliano Farina on 26/06/19.
 //  Copyright © 2019 Pedro Giuliano Farina. All rights reserved.
 //
+
 @IBDesignable public class ShapeView : UIView{
     private var _radius:CGFloat = 0
     @IBInspectable public var radius:CGFloat

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Pedro Giuliano Farina. All rights reserved.
 //
 
-@IBDesignable public class PhysicsShapeView : ShapeView, AffectedByDynamics{
+@IBDesignable public class DynamicShapeView : ShapeView, AffectedByDynamics{
     @IBInspectable public var affectedByGravity: Bool = true
     @IBInspectable public var categoryBitMask: UInt32 = 1
     @IBInspectable public var collisionBitMask: UInt32 =  ~0x0
