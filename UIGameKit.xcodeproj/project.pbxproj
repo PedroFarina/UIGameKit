@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		02A0CAF022C460F200E4FAE8 /* UIGameKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 02A0CAEE22C460F200E4FAE8 /* UIGameKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02A0CAF822C4615800E4FAE8 /* AffectedByDynamics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CAF722C4615800E4FAE8 /* AffectedByDynamics.swift */; };
+		02A0CAFA22C4617400E4FAE8 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CAF922C4617400E4FAE8 /* ShapeView.swift */; };
+		02A0CAFC22C4619F00E4FAE8 /* PhysicsShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CAFB22C4619F00E4FAE8 /* PhysicsShapeView.swift */; };
+		02A0CAFE22C461B600E4FAE8 /* PhysicsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CAFD22C461B600E4FAE8 /* PhysicsImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02A0CAEB22C460F200E4FAE8 /* UIGameKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIGameKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A0CAEE22C460F200E4FAE8 /* UIGameKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIGameKit.h; sourceTree = "<group>"; };
 		02A0CAEF22C460F200E4FAE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02A0CAF722C4615800E4FAE8 /* AffectedByDynamics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectedByDynamics.swift; sourceTree = "<group>"; };
+		02A0CAF922C4617400E4FAE8 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
+		02A0CAFB22C4619F00E4FAE8 /* PhysicsShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsShapeView.swift; sourceTree = "<group>"; };
+		02A0CAFD22C461B600E4FAE8 /* PhysicsImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +54,22 @@
 		02A0CAED22C460F200E4FAE8 /* UIGameKit */ = {
 			isa = PBXGroup;
 			children = (
+				02A0CAF622C4614000E4FAE8 /* Views */,
 				02A0CAEE22C460F200E4FAE8 /* UIGameKit.h */,
 				02A0CAEF22C460F200E4FAE8 /* Info.plist */,
 			);
 			path = UIGameKit;
+			sourceTree = "<group>";
+		};
+		02A0CAF622C4614000E4FAE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02A0CAF722C4615800E4FAE8 /* AffectedByDynamics.swift */,
+				02A0CAF922C4617400E4FAE8 /* ShapeView.swift */,
+				02A0CAFB22C4619F00E4FAE8 /* PhysicsShapeView.swift */,
+				02A0CAFD22C461B600E4FAE8 /* PhysicsImageView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +115,7 @@
 				TargetAttributes = {
 					02A0CAEA22C460F200E4FAE8 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -130,6 +151,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A0CAFA22C4617400E4FAE8 /* ShapeView.swift in Sources */,
+				02A0CAF822C4615800E4FAE8 /* AffectedByDynamics.swift in Sources */,
+				02A0CAFE22C461B600E4FAE8 /* PhysicsImageView.swift in Sources */,
+				02A0CAFC22C4619F00E4FAE8 /* PhysicsShapeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +286,7 @@
 		02A0CAF422C460F200E4FAE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -278,6 +304,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = PGF.UIGameKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +313,7 @@
 		02A0CAF522C460F200E4FAE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
