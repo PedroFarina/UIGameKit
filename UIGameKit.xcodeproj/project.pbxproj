@@ -10,12 +10,13 @@
 		02A0CAF022C460F200E4FAE8 /* UIGameKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 02A0CAEE22C460F200E4FAE8 /* UIGameKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02A0CAF822C4615800E4FAE8 /* AffectedByDynamics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CAF722C4615800E4FAE8 /* AffectedByDynamics.swift */; };
 		02A0CAFA22C4617400E4FAE8 /* ShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CAF922C4617400E4FAE8 /* ShapeView.swift */; };
-		02A0CAFC22C4619F00E4FAE8 /* PhysicsShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CAFB22C4619F00E4FAE8 /* PhysicsShapeView.swift */; };
-		02A0CAFE22C461B600E4FAE8 /* PhysicsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CAFD22C461B600E4FAE8 /* PhysicsImageView.swift */; };
+		02A0CAFC22C4619F00E4FAE8 /* DynamicShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CAFB22C4619F00E4FAE8 /* DynamicShapeView.swift */; };
+		02A0CAFE22C461B600E4FAE8 /* DynamicImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CAFD22C461B600E4FAE8 /* DynamicImageView.swift */; };
 		02A0CB0122C4624800E4FAE8 /* UIContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CB0022C4624800E4FAE8 /* UIContact.swift */; };
 		02A0CB0322C4626300E4FAE8 /* ContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CB0222C4626300E4FAE8 /* ContactDelegate.swift */; };
 		02A0CB0522C4628900E4FAE8 /* DynamicAnimatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CB0422C4628900E4FAE8 /* DynamicAnimatorController.swift */; };
 		02A0CB0722C4636E00E4FAE8 /* DynamicObjectFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CB0622C4636E00E4FAE8 /* DynamicObjectFactory.swift */; };
+		02A0CB0922C47EDA00E4FAE8 /* DynamicBehaviorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0CB0822C47EDA00E4FAE8 /* DynamicBehaviorManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +25,13 @@
 		02A0CAEF22C460F200E4FAE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02A0CAF722C4615800E4FAE8 /* AffectedByDynamics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectedByDynamics.swift; sourceTree = "<group>"; };
 		02A0CAF922C4617400E4FAE8 /* ShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeView.swift; sourceTree = "<group>"; };
-		02A0CAFB22C4619F00E4FAE8 /* PhysicsShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsShapeView.swift; sourceTree = "<group>"; };
-		02A0CAFD22C461B600E4FAE8 /* PhysicsImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsImageView.swift; sourceTree = "<group>"; };
+		02A0CAFB22C4619F00E4FAE8 /* DynamicShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicShapeView.swift; sourceTree = "<group>"; };
+		02A0CAFD22C461B600E4FAE8 /* DynamicImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicImageView.swift; sourceTree = "<group>"; };
 		02A0CB0022C4624800E4FAE8 /* UIContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIContact.swift; sourceTree = "<group>"; };
 		02A0CB0222C4626300E4FAE8 /* ContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDelegate.swift; sourceTree = "<group>"; };
 		02A0CB0422C4628900E4FAE8 /* DynamicAnimatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicAnimatorController.swift; sourceTree = "<group>"; };
 		02A0CB0622C4636E00E4FAE8 /* DynamicObjectFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicObjectFactory.swift; sourceTree = "<group>"; };
+		02A0CB0822C47EDA00E4FAE8 /* DynamicBehaviorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicBehaviorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +77,8 @@
 			children = (
 				02A0CAF722C4615800E4FAE8 /* AffectedByDynamics.swift */,
 				02A0CAF922C4617400E4FAE8 /* ShapeView.swift */,
-				02A0CAFB22C4619F00E4FAE8 /* PhysicsShapeView.swift */,
-				02A0CAFD22C461B600E4FAE8 /* PhysicsImageView.swift */,
+				02A0CAFB22C4619F00E4FAE8 /* DynamicShapeView.swift */,
+				02A0CAFD22C461B600E4FAE8 /* DynamicImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -88,6 +90,7 @@
 				02A0CB0222C4626300E4FAE8 /* ContactDelegate.swift */,
 				02A0CB0422C4628900E4FAE8 /* DynamicAnimatorController.swift */,
 				02A0CB0622C4636E00E4FAE8 /* DynamicObjectFactory.swift */,
+				02A0CB0822C47EDA00E4FAE8 /* DynamicBehaviorManager.swift */,
 			);
 			path = Dynamic;
 			sourceTree = "<group>";
@@ -176,8 +179,9 @@
 				02A0CAFA22C4617400E4FAE8 /* ShapeView.swift in Sources */,
 				02A0CAF822C4615800E4FAE8 /* AffectedByDynamics.swift in Sources */,
 				02A0CB0122C4624800E4FAE8 /* UIContact.swift in Sources */,
-				02A0CAFE22C461B600E4FAE8 /* PhysicsImageView.swift in Sources */,
-				02A0CAFC22C4619F00E4FAE8 /* PhysicsShapeView.swift in Sources */,
+				02A0CAFE22C461B600E4FAE8 /* DynamicImageView.swift in Sources */,
+				02A0CB0922C47EDA00E4FAE8 /* DynamicBehaviorManager.swift in Sources */,
+				02A0CAFC22C4619F00E4FAE8 /* DynamicShapeView.swift in Sources */,
 				02A0CB0322C4626300E4FAE8 /* ContactDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

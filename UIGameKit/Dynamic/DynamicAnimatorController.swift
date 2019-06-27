@@ -8,13 +8,16 @@
 
 public class DynamicAnimatorController : NSObject, UICollisionBehaviorDelegate{
     private let animator:UIDynamicAnimator
+    private lazy var behavioManager:DynamicBehaviorManager = DynamicBehaviorManager(animator: animator, collisionDelegate: self)
     public var contactDelegate:ContactDelegate?
     
     init(view:UIView, delegate:ContactDelegate){
         animator = UIDynamicAnimator(referenceView: view)
+        super.init()
     }
     
-    public func addSubview(_ view:UIView){
+    public func addSubview(_ view:AffectedByDynamics){
+        behavioManager.config(object: view)
         animator.referenceView?.addSubview(view)
     }
     
