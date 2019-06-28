@@ -8,15 +8,26 @@
 
 public class DynamicAnimatorController : NSObject, UICollisionBehaviorDelegate{
     private let animator:UIDynamicAnimator
-    private lazy var behavioManager:DynamicBehaviorManager = DynamicBehaviorManager(animator: animator, collisionDelegate: self)
+    private let objectsBoundToScreen:Bool
+    private lazy var behavioManager:DynamicBehaviorManager = DynamicBehaviorManager(animator: animator, collisionDelegate: self, translatesReferenceBoundsIntoBoundary: self.objectsBoundToScreen)
     public var contactDelegate:ContactDelegate?
     
-    init(view:UIView, delegate:ContactDelegate){
+    init(view:UIView, delegate:ContactDelegate?, objectsBoundToScreen:Bool){
         animator = UIDynamicAnimator(referenceView: view)
         contactDelegate = delegate
+        self.objectsBoundToScreen = objectsBoundToScreen
         super.init()
     }
     
+    convenience init(view:UIView, delegate:ContactDelegate){
+        self.init(view:view, delegate:delegate, objectsBoundToScreen:true)
+    }
+    
+    convenience init(view:UIView){
+        self.init(view:view, delegate:nil, objectsBoundToScreen:true)
+    }
+    
+    ///MARK : Configurating and children to the view
     public func addSubview(_ view:AffectedByDynamics){
         animator.referenceView?.addSubview(view)
         behavioManager.config(object: view)

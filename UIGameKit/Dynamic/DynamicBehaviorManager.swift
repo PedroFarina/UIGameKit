@@ -8,6 +8,7 @@
 
 public class DynamicBehaviorManager{
     private let animator:UIDynamicAnimator
+    private let referenceBound:Bool
     private let gravityBehavior:UIGravityBehavior
     private var collisionBehaviors:[UICollisionBehavior] = []
     public var collisionDelegate:UICollisionBehaviorDelegate?{
@@ -18,31 +19,47 @@ public class DynamicBehaviorManager{
         }
     }
     
-    init(animator:UIDynamicAnimator, collisionDelegate:UICollisionBehaviorDelegate?){
+    init(animator:UIDynamicAnimator, collisionDelegate:UICollisionBehaviorDelegate?, translatesReferenceBoundsIntoBoundary:Bool){
         self.animator = animator
         self.collisionDelegate = collisionDelegate
+        self.referenceBound = translatesReferenceBoundsIntoBoundary
         
         self.gravityBehavior = UIGravityBehavior(items: [])
         self.animator.addBehavior(gravityBehavior)
     }
     
+    convenience init(animator:UIDynamicAnimator, translatesReferenceBoundsIntoBoundary:Bool){
+        self.init(animator:animator, collisionDelegate:nil, translatesReferenceBoundsIntoBoundary:translatesReferenceBoundsIntoBoundary)
+    }
+    
+    convenience init(animator:UIDynamicAnimator, collisionDelegate:UICollisionBehaviorDelegate?){
+        self.init(animator:animator, collisionDelegate:collisionDelegate, translatesReferenceBoundsIntoBoundary:true)
+    }
+    
     convenience init(animator:UIDynamicAnimator){
-        self.init(animator:animator, collisionDelegate:nil)
+        self.init(animator:animator, collisionDelegate:nil, translatesReferenceBoundsIntoBoundary:true)
     }
     
     public func config(object:AffectedByDynamics){
         if object.affectedByGravity{
             self.gravityBehavior.addItem(object)
         }
-        let binaryReverse:String = String(String(object.collisionBitMask,  radix:2).reversed())
-        checkCount(count: binaryReverse.count)
-        
-        var i:Int = 0
-        for c in binaryReverse{
-            if c == "1"{
-                collisionBehaviors[i].addItem(object)
+        if referenceBound && object.collisionBitMask == 0{
+            let cvBehavior = UICollisionBehavior(items: [object])
+            cvBehavior.translatesReferenceBoundsIntoBoundary = true
+            animator.addBehavior(cvBehavior)
+        }
+        else{
+            let binaryReverse:String = String(String(object.collisionBitMask,  radix:2).reversed())
+            checkCount(count: binaryReverse.count)
+            
+            var i:Int = 0
+            for c in binaryReverse{
+                if c == "1"{
+                    collisionBehaviors[i].addItem(object)
+                }
+                i+=1
             }
-            i+=1
         }
     }
     
@@ -50,6 +67,7 @@ public class DynamicBehaviorManager{
         if(count > collisionBehaviors.count){
             for _ in collisionBehaviors.count...count{
                 let behavior:UICollisionBehavior = UICollisionBehavior(items: [])
+                behavior.translatesReferenceBoundsIntoBoundary = referenceBound
                 behavior.collisionDelegate =  collisionDelegate
                 collisionBehaviors.append(behavior)
                 animator.addBehavior(behavior)
