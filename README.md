@@ -10,7 +10,7 @@ Firstly let's understand the main principles.
 When we talk about physics system in UIKit, we talk about UIDynamics. The Dynamics is composed of an animator, bound to a reference view in which to animate the behaviors on.
 
 ## DynamicAnimatorController
-In this framework we have a `DynamicAnimatorController` who's responsible of our animator and it's collisions, delegating contacts and configuration of every object that we put in scene.
+In this framework we have a `DynamicAnimatorController` who's responsible for our animator and its collisions, delegating contacts and configuration of every object that we put in scene.
 
 The controller counts on a `DynamicBehaviorManager` to assure which object should collide with one another, pushing and snaping objects in scene.
 
@@ -54,8 +54,10 @@ class ViewController: UIViewController, ContactDelegate {
 ```
 
 # Known limitations
-The framework does not support round objects. It seems that UIKit makes only rectangular objects, so even the `DynamicShapeNode` is just a square with a circle drawn on the middle of it.
+The framework does not support circular objects. It seems that UIKit makes only rectangular objects, so even the `DynamicShapeNode` is just a square with a circle drawn in the middle of it.
 
 **All objects must** set its `AffectedByDynamics` properties on its own constructor(init).
 
 If an object does not collide with other, it can't make contact as well.
+
+An object may only belong to **ONE** collision group.
