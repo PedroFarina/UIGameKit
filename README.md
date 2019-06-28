@@ -1,3 +1,4 @@
+
 # UIGameKit
 An UIKit framework designed to assist in the making of games using UIDynamics
 
@@ -53,7 +54,8 @@ class ViewController: UIViewController, ContactDelegate {
 ```
 
 # Known limitations
-
 The framework does not support round objects. It seems that UIKit makes only rectangular objects, so even the `DynamicShapeNode` is just a square with a circle drawn on the middle of it.
+
 **All objects must** set its `AffectedByDynamics` properties on its own constructor(init).
+
 If an object does not collide with other, it can't make contact as well.
