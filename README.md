@@ -54,7 +54,6 @@ class ViewController: UIViewController, ContactDelegate {
 ```
 
 # Known limitations
-The framework does not support circular objects. It seems that UIKit makes only rectangular objects, so even the `DynamicShapeNode` is just a square with a circle drawn in the middle of it.
 
 **All objects must** set its `AffectedByDynamics` properties on its own constructor(init).
 
