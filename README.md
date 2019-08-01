@@ -18,7 +18,7 @@ The controller counts on a `DynamicBehaviorManager` to assure which object shoul
 Every UI object interacting with this framework must conform to `AffectedByDynamics` protocol.
 To easily make objects, some presets are arealdy a part of this framework, and are easily created by a static helper `DynamicObjectFactory` that deals with the configuration of the most commom objects, and with basic configuration of any `AffectedByDynamics` objects that you might come to implement.
 
-Each `AffectedByDynamics` **must** have it's properties set on `init()` or it **won't work**.
+Each `AffectedByDynamics` **must** have it's properties set prior entering scene, usually on `init()` or it **won't work**.
 
 ## Code example
 
