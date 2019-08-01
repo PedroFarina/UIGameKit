@@ -7,6 +7,17 @@
 //
 
 @IBDesignable public class DynamicShapeView : ShapeView, AffectedByDynamics{
+    private lazy var framePath:UIBezierPath = UIBezierPath(rect: self.frame)
+    public var path: UIBezierPath{
+        get{
+            if let currentPath = currentPath{
+                return currentPath
+            }
+            else{
+                return framePath
+            }
+        }
+    }
     @IBInspectable public var affectedByGravity: Bool = true
     @IBInspectable public var categoryBitMask: UInt32 = 1
     @IBInspectable public var collisionBitGroup: UInt32 = 0
@@ -15,7 +26,7 @@
     
     public override var collisionBoundsType: UIDynamicItemCollisionBoundsType{
         get{
-            if let _ = path{
+            if let _ = currentPath{
                 return .path
             }
             else{
@@ -26,7 +37,7 @@
     
     public override var collisionBoundingPath: UIBezierPath{
         get{
-            if let p = path{
+            if let p = currentPath{
                 return p
             }
             return UIBezierPath()

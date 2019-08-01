@@ -55,8 +55,8 @@ class ViewController: UIViewController, ContactDelegate {
 
 # Known limitations
 
-**All objects must** set its `AffectedByDynamics` properties on its own constructor(init).
+**All objects must** set its `AffectedByDynamics` properties prior entering scene(usually on its own constructor).
 
 If an object does not collide with other, it can't make contact as well.
 
-An object may only belong to **ONE** collision group.
+An object may only belong to **ONE** collision group unless it's stationary.

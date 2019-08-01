@@ -7,6 +7,7 @@
 //
 
 @IBDesignable public class DynamicImageView : UIImageView, AffectedByDynamics{
+    public lazy var path: UIBezierPath = UIBezierPath(rect: self.frame)
     @IBInspectable public var affectedByGravity:Bool = true
     @IBInspectable public var categoryBitMask:UInt32 = 1
     @IBInspectable public var collisionBitGroup:UInt32 = 0

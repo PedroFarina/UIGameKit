@@ -89,8 +89,8 @@
 				02A0CB0022C4624800E4FAE8 /* UIContact.swift */,
 				02A0CB0222C4626300E4FAE8 /* ContactDelegate.swift */,
 				02A0CB0422C4628900E4FAE8 /* DynamicAnimatorController.swift */,
-				02A0CB0622C4636E00E4FAE8 /* DynamicObjectFactory.swift */,
 				02A0CB0822C47EDA00E4FAE8 /* DynamicBehaviorManager.swift */,
+				02A0CB0622C4636E00E4FAE8 /* DynamicObjectFactory.swift */,
 			);
 			path = Dynamic;
 			sourceTree = "<group>";
